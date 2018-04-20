@@ -126,6 +126,7 @@ module.exports = {
       summary = converter.makeHtml(summary);
       return summary;
     });
+
     hbs.registerHelper('convert-summary', function(summary, options) {
       return converter.makeHtml(summary);
     });
