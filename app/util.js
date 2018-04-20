@@ -99,24 +99,6 @@ module.exports = {
       return top < 1 ? '否' : '是';
     });
 
-    hbs.registerHelper('display-post-state', function(status, options) {
-      let text;
-
-      switch (status) {
-        case 'draft':
-          text = '草稿';
-          break;
-        case 'published':
-          text = '已发布';
-          break;
-        default:
-          text = '未知状态';
-          break;
-      }
-
-      return text;
-    });
-
     hbs.registerHelper('table-index', function(index, pageIndex, pageSize, options) {
       return index + 1 + pageIndex * pageSize;
     });
@@ -126,6 +108,7 @@ module.exports = {
       summary = converter.makeHtml(summary);
       return summary;
     });
+
     hbs.registerHelper('convert-summary', function(summary, options) {
       return converter.makeHtml(summary);
     });

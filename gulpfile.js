@@ -7,8 +7,8 @@ gulp.task('default', () => {
     script: 'bin/www',
     ext: 'js hbs',
     env: {
-      NODE_ENV: 'dev',
-      DEBUG: '*'
+      NODE_ENV: 'development',
+      DEBUG: 'polunzh.com:*'
     },
     stdout: false,
   }).on('readable', function() {
