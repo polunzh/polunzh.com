@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-2">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">首页</li>
+        </ol>
+        <!--
+        <h1 class="page-header">
+            Page Heading
+            <small>Secondary Text</small>
+        </h1>
+        -->
+
+        <h3>最近文章</h3>
+        <hr>
+        <div class="recent-posts">
+            <ul>
+                {{#each posts}}
+                <li>
+                    <span>{{moment this.create_date 'YYYY-MM-DD'}} &raquo;</span>
+                    <a href="/post/{{this.slug}}">{{this.title}}</a>
+                </li>
+                {{/each}}
+                <li>
+                    <a href="/archives">更多文章...</a>
+                </li>
+            </ul>
+        </div>
+        <hr>
+    </div>
+
+    <div class="col-md-3">
+        <div class="well">
+            <h4>搜索</h4>
+            <div class="input-group">
+                <input id="searchInput" type="text" class="form-control">
+                <span class="input-group-btn">
+                    <button id="searchBtn" class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+            <!-- /.input-group -->
+        </div>
+        {{> categories}}
+        <div class="well">
+            <h4>关于</h4>
+            <p>
+                <a href="/about">阳光的破仑</a>
+            </p>
+        </div>
+    </div>
+</div>
+{{#extend "scripts"}}
+<script>
+    $(function () {
+        var $searchInput = $('#searchInput');
+        var $searchBtn = $('#searchBtn');
+        $searchInput.keyup(function (e) {
+            if (e.keyCode === 13) $searchBtn.trigger('click');
+        });
+
+        $searchBtn.click(function () {
+            var keyword = $searchInput.val().trim();
+            if (keyword) window.location.href = '/search?s=' + keyword;
+        });
+    });
+</script> {{/extend}}

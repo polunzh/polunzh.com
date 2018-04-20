@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">首页</a></li>
+            <li class="breadcrumb-item active"><a href="/archives">归档</a></li>
+        </ol>
+        <div class="post">
+            <h1 class="text-center">{{post.title}}</h1>
+            <div class="post-info text-center">
+                <span>作者: <a href="/about">polunzh</a></span>
+                <span>{{moment post.create_date 'YYYY-MM-DD HH:mm:ss'}}</span>
+                <span>分类: <a href="/categories/{{post.category.name}}">{{post.category.name}}</a></span>
+                {{#if post.tags}}
+                    <span>标签:
+                        {{#each post.tags}}
+                            <a href="/tags/{{this}}">{{this}}</a>
+                        {{/each}}</span>
+                {{/if}}
+            </div>
+            <div>
+                {{{post.content}}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#extend "styles"}}
+    <link rel="stylesheet" href="/css/post.css">
+{{/extend}}

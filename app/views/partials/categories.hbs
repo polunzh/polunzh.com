@@ -1,0 +1,12 @@
+<div class="well">
+    <h4>分类</h4>
+    <div class="row">
+        <div class="col-lg-6">
+            <ul class="list-unstyled">
+                {{#each categories}}
+                <li><a href="/categories/{{this.name}}">{{this.name}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
